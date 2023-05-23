@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lion School</string>
+    <string name="get_started_with">Manage your courses with</string>
+    <string name="name_school">Lion School</string>
+    <string name="get_started">Get Started</string>
+    <string name="title_activity_cousers">CousersActivity</string>
+    <string name="find_your_course">Find your course</string>
+    <string name="course">Courses</string>
+</resources>
