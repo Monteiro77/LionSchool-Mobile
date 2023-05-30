@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.lionschool.components
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
@@ -26,11 +27,23 @@ fun topLine() {
     }
 }
 
+@Composable
+fun cardLine() {
+    Card(
+        modifier = Modifier.size(width = 332.dp, height = 3.dp),
+        backgroundColor = Color(255,255,255)
+    ) {
+        
+    }
+}
+
+
 
 @Preview
 @Composable
 fun LinePreview(){
     mediumLine()
     topLine()
+    cardLine()
 }
 

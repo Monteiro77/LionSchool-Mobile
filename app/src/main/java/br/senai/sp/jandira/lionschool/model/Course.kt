@@ -6,4 +6,5 @@ data class Course(
     val sigla: String,
     val icone: String,
     val carga: String
+
 )
