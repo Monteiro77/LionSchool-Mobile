@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.lionschool
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -51,6 +53,9 @@ class CousersActivity : ComponentActivity() {
 @Composable
 fun CousersScreen() {
 
+
+        val context = LocalContext.current
+
         var searchState by remember {
             mutableStateOf("")
         }
@@ -86,7 +91,7 @@ fun CousersScreen() {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painter = painterResource(id = R.drawable.logo), contentDescription = null,  modifier = Modifier.size(78.dp))
+                    Image(painter = painterResource(id = R.drawable.logo2), contentDescription = null,  modifier = Modifier.size(78.dp))
 
                     topLine()
 
@@ -134,29 +139,36 @@ fun CousersScreen() {
                 }
                 LazyColumn(){
                     items(listCourses){
-                        Card(
-                            backgroundColor = Color(51,71,176),
+                        Button(
+                            onClick = {
+                                var openStudentsActivity = Intent(context, StudentsActivity::class.java)
+                                openStudentsActivity.putExtra("sigla", it.sigla)
+                                context.startActivity(openStudentsActivity)
+                            },
                             modifier = Modifier
                                 .width(400.dp)
                                 .height(200.dp)
                                 .padding(horizontal = 25.dp, vertical = 10.dp),
                             shape = RoundedCornerShape(30.dp),
+                            colors = ButtonDefaults.buttonColors(Color(51,71,176))
 
                         ) {
                             Column (
                                 horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier.padding(top = 5.dp, start = 5.dp)
+                                modifier = Modifier.padding(top = 5.dp, start = 5.dp).fillMaxSize(),
                             ){
-                                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier
+                                Row(verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier
                                     .padding(end = 180.dp, bottom = 10.dp)
-                                    .fillMaxWidth()) {
+                                    .width(400.dp)
+                                ) {
                                     AsyncImage(
                                         model = it.icone,
                                         contentDescription = "Icone do ${it.nome}",
                                         modifier = Modifier.size(80.dp),
                                         colorFilter = ColorFilter.tint(Color.White)
                                     )
-                                    Text(text = it.sigla, color = Color.White, fontSize = 40.sp, modifier = Modifier.padding(start = 10.dp))
+                                    Text(text = it.sigla, color = Color.White, fontSize = 25.sp, modifier = Modifier.padding(start = 10.dp))
 
                                 }
                                 cardLine()
