@@ -28,6 +28,15 @@ fun topLine() {
 }
 
 @Composable
+fun cardLineStudent() {
+    Card(modifier = Modifier.size(width = 200.dp, height = 5.dp),
+        backgroundColor = Color(229,187,87)
+    ) {
+
+    }
+}
+
+@Composable
 fun cardLine() {
     Card(
         modifier = Modifier.size(width = 332.dp, height = 3.dp),

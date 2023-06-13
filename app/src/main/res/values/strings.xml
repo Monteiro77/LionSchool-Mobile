@@ -7,4 +7,5 @@
     <string name="find_your_course">Find your course</string>
     <string name="course">Courses</string>
     <string name="title_activity_students">StudentsActivity</string>
+    <string name="title_activity_info_students">InfoStudentsActivity</string>
 </resources>

@@ -142,7 +142,7 @@ fun CousersScreen() {
                         Button(
                             onClick = {
                                 var openStudentsActivity = Intent(context, StudentsActivity::class.java)
-                                openStudentsActivity.putExtra("sigla", it.sigla)
+                                openStudentsActivity.putExtra("curso", it.sigla)
                                 context.startActivity(openStudentsActivity)
                             },
                             modifier = Modifier
@@ -155,12 +155,14 @@ fun CousersScreen() {
                         ) {
                             Column (
                                 horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier.padding(top = 5.dp, start = 5.dp).fillMaxSize(),
+                                modifier = Modifier
+                                    .padding(top = 5.dp, start = 5.dp)
+                                    .fillMaxSize(),
                             ){
                                 Row(verticalAlignment = Alignment.CenterVertically,
                                     modifier = Modifier
-                                    .padding(end = 180.dp, bottom = 10.dp)
-                                    .width(400.dp)
+                                        .padding(end = 180.dp, bottom = 10.dp)
+                                        .width(400.dp)
                                 ) {
                                     AsyncImage(
                                         model = it.icone,

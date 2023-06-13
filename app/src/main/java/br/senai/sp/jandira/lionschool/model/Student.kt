@@ -6,4 +6,6 @@ data class Student(
     val matricula: String,
     val sexo: String,
     val status: String,
+    val curso: String,
+    val dataConclusao: String
 )
